@@ -1,0 +1,5 @@
+<h1>Booking <%= @booking.id %></h1>
+<p>User: <%= @booking.user.id %></p>
+<p>Pokemon: <%= @booking.pokemon.id %></p>
+<p>Total Price: <%= @booking.total_price %></p>
+<%= link_to 'Back', bookings_path %>
