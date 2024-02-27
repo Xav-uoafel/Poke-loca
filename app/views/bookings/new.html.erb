@@ -1,11 +1,15 @@
-<h1>New Booking</h1>
-<%= form_for @booking do |f| %>
-  <div>
-    <%= f.label :pokemon_id %>
-    <%= f.text_field :pokemon_id %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+
+        </div>
+        <div class="panel-body">
+          <%= render 'form' %>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <%= f.submit %>
-  </div>
-<% end %>
-<%= link_to 'Back', bookings_path %>
+
+</div>

@@ -1,8 +1,11 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[show]
+  before_action :set_booking, only: %i[show destroy]
 
   def index
     @bookings = Booking.all
+    @pokemons = Pokemon.all
+    @booking = Booking.new
+
   end
 
   def show
@@ -10,30 +13,38 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+
   end
 
   def create
-    if current_user.nil?
-      redirect_to new_user_session_path
-    else
-      pokemon = Pokemon.find(params[:pokemon_id])
-      @booking = Booking.new(user: current_user, pokemon:, start_date: params[:start_date],
-                             end_date: params[:end_date])
-      @booking.total_price = calculate_price(pokemon, @booking)
-      if @booking.save
-        redirect_to booking_path(@booking)
+
+      @pokemon = Pokemon.find(params[:booking][:pokemon_id])
+      @booking = Booking.new(strong_params)
+      @booking.user_id = current_user.id
+
+      @booking.pokemon_id = @pokemon.id
+
+      @booking.total_price = calculate_price(@pokemon, @booking)
+      if @booking.save!
+        redirect_to bookings_path, notice: 'La réservation a été créée avec succès.'
       else
         render :new
       end
-    end
   end
-  
+
     def destroy
       @booking.destroy
-      redirect_to bookings_path
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.remove(@booking) }
+        format.html { redirect_to bookings_url, notice: 'La réservation a été supprimée avec succès.' }
+      end
     end
 
   private
+
+  def strong_params
+    params.require(:booking).permit(:user_id, :start_date, :end_date , :pokemon_id)
+  end
 
   def calculate_price(pokemon, booking)
     total_price = pokemon.price * (booking.end_date - booking.start_date)

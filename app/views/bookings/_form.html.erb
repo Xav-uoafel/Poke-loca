@@ -1,0 +1,10 @@
+
+<%= simple_form_for @booking do |f| %>
+  <%= f.input :start_date, label: 'Start date of reveservation', error: 'You need to be sign in to book' %>
+  <%= f.input :end_date, label: 'End date of reservation', hint: 'No special characters.' %>
+  <%= f.input :pokemon_id, collection: Pokemon.all, label_method: :name, value_method: :id %>
+  <%= f.button :submit %>
+
+  <%= link_to 'Back', bookings_path%>
+
+<% end %>
