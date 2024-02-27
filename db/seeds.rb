@@ -15,13 +15,13 @@ User.create!(first_name: "John", last_name: "Doe", credit_card: "123456789", ema
 User.create!(first_name: "Jane", last_name: "Doe", credit_card: "987654321", email:'test1@test.com' , password: '123456')
 User.create!(first_name: "Jack", last_name: "Doe", credit_card: "123456789", email:'test2@test.com' , password: '123456')
 puts 'user created'
-index = 0
+
 puts 'creating 10 pokemon'
-10.times do
-Pokemon.create!(name: pokemons[index]['name']['fr'], services: services.sample, price: rand(10..100), user_id: User.first.id)
-index += 1
+100.times do
+  index = rand(0..200)
+Pokemon.create!(name: pokemons[index]['name']['fr'], services: services.sample, price: rand(10..100), type_pokemon: pokemons[index]['types'][0][name])
 end
- puts 'pokemon created'
+puts 'pokemon created'
 puts 'creating 10 bookings'
 10.times do
   Booking.create!(user_id: rand(User.first.id..User.last.id), pokemon_id: rand(Pokemon.first.id..Pokemon.last.id), total_price: 100, start_date: Date.today, end_date: Date.today + 5)

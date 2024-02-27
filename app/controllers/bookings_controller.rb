@@ -34,10 +34,7 @@ class BookingsController < ApplicationController
 
     def destroy
       @booking.destroy
-      respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.remove(@booking) }
-        format.html { redirect_to bookings_url, notice: 'La réservation a été supprimée avec succès.' }
-      end
+      redirect_to bookings_path, notice: 'La réservation a été supprimée avec succès.'
     end
 
   private
