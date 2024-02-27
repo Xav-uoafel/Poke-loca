@@ -1,2 +1,9 @@
 <h1>Pokemons#show</h1>
 <p>Find me in app/views/pokemons/show.html.erb</p>
+
+<%= cl_image_tag @pokemon.picture.key %>
+<%= @pokemon.name %>
+<%= @pokemon.services %>
+<%= @pokemon.price %>
+<%= link_to 'Book this Pokemon',  new_pokemon_booking_path(pokemon_id: @pokemon.id) %>
+<%= link_to 'Back', root_path %>
