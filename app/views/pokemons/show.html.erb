@@ -1,2 +1,11 @@
 <h1>Pokemons#show</h1>
 <p>Find me in app/views/pokemons/show.html.erb</p>
+
+
+
+<%= simple_form_for [@pokemon, @booking] do |f| %>
+  <%= f.input :start_date, label: 'Start date of reveservation', error: 'You need to be sign in to book' %>
+  <%= f.input :end_date, label: 'End date of reservation', hint: 'No special characters.' %>
+  <%= f.button :submit %>
+
+<% end %>

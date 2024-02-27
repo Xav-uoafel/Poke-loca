@@ -16,11 +16,16 @@ User.create!(first_name: "Jane", last_name: "Doe", credit_card: "987654321", ema
 User.create!(first_name: "Jack", last_name: "Doe", credit_card: "123456789", email:'test2@test.com' , password: '123456')
 puts 'user created'
 
-puts 'creating 10 pokemon'
-100.times do
-  index = rand(0..200)
-Pokemon.create!(name: pokemons[index]['name']['fr'], services: services.sample, price: rand(10..100), type_pokemon: pokemons[index]['types'][0][name])
+puts 'creating 151 pokemon'
+index = 0
+151.times do
+  pokemon = Pokemon.new(name: pokemons[index]['name']['fr'], services: services.sample, price: rand(10..100), type_pokemon: pokemons[index]['types'][0]['name'])
+  pokemon.picture.attach(io: URI.open(pokemons[index]['sprites']['regular']), filename: 'pokemon.jpg', content_type: 'image/jpg')
+  pokemon.save!
+  puts "pokemon #{index}--#{pokemon.name} created"
+index += 1
 end
+
 puts 'pokemon created'
 puts 'creating 10 bookings'
 10.times do
