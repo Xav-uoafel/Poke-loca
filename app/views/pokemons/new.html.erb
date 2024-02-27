@@ -1,9 +1,32 @@
+<div class="container">
+
 <h1>Add a new offer</h1>
 <p>Eheh</p>
 
 <%= simple_form_for @pokemon do |f| %>
-  <%= f.input :name, collection: Pokemon.all %>
+  <%=f.input :name, collection: Pokemon.all, value_method: :name, label: "Nom du Pokémon", include_blank: false%>
   <%=f.input :services, collection: %w[courses parking promenade nage babysitting massage menage jardinage avocat tueur-a-gages] %>
   <%= f.input :price, label: 'Price/day (€)'%>
   <%= f.submit 'Create your offer' %>
 <% end %>
+
+
+<div class="cards-pokemon">
+
+<% @pokemons.each do |pokemon| %>
+
+<div class="card" style="width: 18rem;">
+  <img src="<%=pokemon.picture.url%>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= pokemon.name %></h5>
+    <p class="card-text"><%= pokemon.services %></p>
+    <p class="card-text"><%= pokemon.price %></p>
+    <p class="card-text"><%= pokemon.type_pokemon%></p>
+
+    <p><%= link_to "Remove", pokemon_path(pokemon), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+  </div>
+</div>
+<%end%>
+
+</div>
+</div>

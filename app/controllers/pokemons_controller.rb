@@ -13,13 +13,14 @@ class PokemonsController < ApplicationController
 
   def new
     @pokemon = Pokemon.new
+    @pokemons = Pokemon.where(user_id: current_user.id)
   end
 
   def create
-    @pokemon = Pokemon.find(params[:pokemon][:name])
+    @pokemon = Pokemon.find_by(name: params[:pokemon][:name])
     @pokemon.user_id = current_user.id
     if @pokemon.update!(pokemon_params)
-      redirect_to pokemon_path(@pokemon.id)
+      redirect_to new_pokemon_path
     else
       render :new
     end
