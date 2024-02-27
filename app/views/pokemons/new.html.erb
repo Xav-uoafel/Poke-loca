@@ -1,8 +1,9 @@
-<h1>Pokemons#new</h1>
-<p>Find me in app/views/pokemons/new.html.erb</p>
+<h1>Add a new offer</h1>
+<p>Eheh</p>
 
 <%= simple_form_for @pokemon do |f| %>
   <%= f.input :name, collection: Pokemon.all %>
-  <%= f.input :price %>
-  <%= f.submit 'Create' %>
+  <%=f.input :services, collection: %w[courses parking promenade nage babysitting massage menage jardinage avocat tueur-a-gages] %>
+  <%= f.input :price, label: 'Price/day (€)'%>
+  <%= f.submit 'Create your offer' %>
 <% end %>
