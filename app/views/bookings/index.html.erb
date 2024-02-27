@@ -1,2 +1,23 @@
-<h1>Bookings#index</h1>
-<p>Find me in app/views/bookings/index.html.erb</p>
+<h1>Bookings</h1>
+
+<div data-controller="toggle" class="mt-5">
+  <ul>
+  <% @pokemons.each do |pokemon| %>
+
+      <ul>
+        <% @bookings.each do |booking| %>
+          <li>
+            <%= booking.pokemon.name%>
+            <%= booking.start_date %> to <%= booking.end_date %>
+
+            <%= button_to "Supprimer la réservation", booking_path(booking), method: :delete, data: { confirm: "Êtes-vous sûr ?" }, class: "secondary-button" %>
+          </li>
+        <% end %>
+      </ul>
+
+      <%= button_to 'Add a booking', new_pokemon_booking_path(pokemon), method: :get, class: 'btn btn-outline-primary' %>
+
+    </li>
+  <% end %>
+  </ul>
+</div>
