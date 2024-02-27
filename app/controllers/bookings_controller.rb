@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @pokemon = Pokemon.find(params[:booking][:pokemon_id])
+    @pokemon = Pokemon.find(params[:pokemon_id])
     @booking = Booking.new(strong_params)
     @booking.user_id = current_user.id
 
@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to booking_path
+    redirect_to root_path, notice: 'La réservation a été supprimée avec succès.'
   end
 
   private
