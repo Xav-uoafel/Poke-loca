@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
 
     @booking.total_price = calculate_price(@pokemon, @booking)
     if @booking.save!
-      redirect_to bookings_path, notice: 'La réservation a été créée avec succès.'
+      redirect_to pokemon_path(@pokemon), notice: 'La réservation a été créée avec succès.'
     else
       render :new
     end

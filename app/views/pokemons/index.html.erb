@@ -1,11 +1,17 @@
-<h1>Pokemons#index</h1>
-<p>Find me in app/views/pokemons/index.html.erb</p>
-<%= cl_image_tag 'h58em07n4cuvwfrmg7px',
-      width: 400, height: 300, crop: :fill %>
-
-
-
-
-
-<%# <%= link_to 'New Pokemon', new_pokemons_path %> %>
-<%= link_to 'bookings', bookings_path %>
+<h1>Pokemons !!!!!!!!!!!!!!!</h1>
+<h2>Attttrraaaaapppezzzzzzzz llesssss touuuuusssss!!!!!!!!!!!!!!!
+</h2>
+<%= link_to 'New Pokemon', new_pokemon_path %>
+<div class="container">
+<% @pokemons.each do |pokemon|%>
+<div class="card" style="width: 18rem;">
+  <img src="<%= pokemon.picture.url %>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= pokemon.name %></h5>
+    <p class="card-text">Hire this pokemon to : <%= pokemon.services %></p>
+    <%= pokemon.price %>€/day
+    <%= link_to 'Show', pokemon %>
+  </div>
+</div>
+<% end %>
+</div>

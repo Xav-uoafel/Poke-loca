@@ -8,6 +8,7 @@ class PokemonsController < ApplicationController
   def show
     @booking = Booking.new
     @pokemon = Pokemon.find(params[:id])
+    @bookings = Booking.where(pokemon_id: @pokemon.id)
   end
 
   def new

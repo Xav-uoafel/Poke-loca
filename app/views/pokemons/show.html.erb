@@ -1,19 +1,36 @@
-<h1>Pokemons#show</h1>
-<p>Find me in app/views/pokemons/show.html.erb</p>
-
-
+<h1 class="text-center"><%= @pokemon.name %></h1>
+<div class="container">
 <%= cl_image_tag @pokemon.picture.key %>
-<%= @pokemon.name %>
+
+<%= @pokemon.type_pokemon%>
 <%= @pokemon.services %>
-<%= @pokemon.price %>
-<%= link_to 'Book this Pokemon',  new_pokemon_booking_path(pokemon_id: @pokemon.id) %>
+<%= @pokemon.price %>€/day
 <%= link_to 'Back', root_path %>
+</div>
 
+<div class="card shadow p-3 mb-5 bg-white rounded" style="width: 80%; max-width: 600px;">
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.pokemon.name %></h5>
+                  <p class="card-text">Durée : <%= (booking.end_date - booking.start_date).to_i %> jours</p>
+                  <p class="card-text">Prix total : <%= booking.pokemon.price * (booking.end_date - booking.start_date).to_i %>€</p>
+                  <%# <%= render 'delete', booking: pokemon_booking %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-
+<div class="container">
+  <div class="d-flex justify-content-center">
 <%= simple_form_for [@pokemon, @booking] do |f| %>
   <%= f.input :start_date, label: 'Start date of reveservation', error: 'You need to be sign in to book' %>
   <%= f.input :end_date, label: 'End date of reservation', hint: 'No special characters.' %>
-  <%= f.button :submit %>
-
+  <%= f.button :submit, class:'text-center btn btn-danger rounded' %>
 <% end %>
+</div>
+</div>
