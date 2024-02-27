@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @pokemon = Pokemon.find(params[:id])
 
   end
 
@@ -34,10 +35,8 @@ class BookingsController < ApplicationController
 
     def destroy
       @booking.destroy
-      respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.remove(@booking) }
-        format.html { redirect_to bookings_url, notice: 'La réservation a été supprimée avec succès.' }
-      end
+      redirect_to booking_path
+
     end
 
   private
@@ -47,7 +46,8 @@ class BookingsController < ApplicationController
   end
 
   def calculate_price(pokemon, booking)
-    total_price = pokemon.price * (booking.end_date - booking.start_date)
+    days = (booking.end_date - booking.start_date).to_i
+    total_price = pokemon.price * days
     return total_price
   end
 

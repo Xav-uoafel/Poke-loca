@@ -1,23 +1,21 @@
 <h1>Bookings</h1>
 
-<div data-controller="toggle" class="mt-5">
-  <ul>
-  <% @pokemons.each do |pokemon| %>
-
-      <ul>
-        <% @bookings.each do |booking| %>
-          <li>
-            <%= booking.pokemon.name%>
-            <%= booking.start_date %> to <%= booking.end_date %>
-
-            <%= button_to "Supprimer la réservation", booking_path(booking), method: :delete, data: { confirm: "Êtes-vous sûr ?" }, class: "secondary-button" %>
-          </li>
-        <% end %>
-      </ul>
-
-      <%= button_to 'Add a booking', new_pokemon_booking_path(pokemon), method: :get, class: 'btn btn-outline-primary' %>
-
-    </li>
-  <% end %>
-  </ul>
+<div class="d-flex justify-content-center">
+  <div class="card shadow p-3 mb-5 bg-white rounded" style="width: 80%; max-width: 600px;">
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= booking.pokemon.name %></h5>
+                  <p class="card-text">Durée : <%= (booking.end_date - booking.start_date).to_i %> jours</p>
+                  <p class="card-text">Prix total : <%= booking.pokemon.price * (booking.end_date - booking.start_date).to_i %>€</p>
+                  <%= render 'delete', booking: booking %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <%= render 'new', booking: Booking.new %>
+  </div>
 </div>
