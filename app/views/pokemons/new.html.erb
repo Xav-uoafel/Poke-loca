@@ -2,9 +2,7 @@
 <p>Find me in app/views/pokemons/new.html.erb</p>
 
 <%= simple_form_for @pokemon do |f| %>
-  <%= f.input :name %>
-  <%= f.input :type_pokemon %>
-  <%= f.input :services %>
+  <%= f.input :name, collection: Pokemon.all %>
   <%= f.input :price %>
-  <%= f.button :submit %>
+  <%= f.submit 'Create' %>
 <% end %>

@@ -13,9 +13,9 @@ class PokemonsController < ApplicationController
   end
 
   def create
-    @pokemon = Pokemon.new(pokemon_params)
+    @pokemon = Pokemon.find(params[:pokemon][:name])
     @pokemon.user_id = current_user.id
-    if @pokemon.save!
+    if @pokemon.update!(pokemon_params)
       redirect_to pokemon_path(@pokemon.id)
     else
       render :new
@@ -26,7 +26,8 @@ class PokemonsController < ApplicationController
   end
 
   def update
-    if @pokemon.update!(pokemon_params)
+    @pokemon = Pokemon.new(pokemon_params)
+    if @pokemon.save!
       redirect_to pokemon_path(@pokemon.id)
     else
       render :edit
