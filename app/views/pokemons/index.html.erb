@@ -7,11 +7,8 @@
     </div>
     <div class="py-5 container">
       <div class="d-flex align-items-center justify-content-center">
-            <div id="otherContent" style="display: none;" data-explorer-target="content">
-          <h1>Pokemons !!!!!!!!!!!!!!!</h1>
-            <h2>Attttrraaaaapppezzzzzzzz llesssss touuuuusssss!!!!!!!!!!!!!!!
-            </h2>
-
+            <div id="otherContent" style="display;" data-explorer-target="content">
+              <%= render 'pokemon_cards' %>
 
       <% if user_signed_in? %>
         <%= link_to 'Ajouter un service', new_pokemon_path %>
@@ -22,7 +19,8 @@
           </a>
         <span id ="ancre"></span>
 
-        <% @pokemons.each do |pokemon|%>
+        <%= @pokemons.each do |pokemon|%>
+
         <div class="card" style="width: 18rem;">
           <img src="<%= pokemon.picture.url %>" class="card-img-top" alt="...">
           <div class="card-body">
@@ -31,8 +29,8 @@
             <%= pokemon.price %>€/day
             <%= link_to 'Show', pokemon %>
           </div>
-        </div>
-        <% end %>
+
       </div>
+        <% end %>
     <div id="spacer"></div>
 </div>
