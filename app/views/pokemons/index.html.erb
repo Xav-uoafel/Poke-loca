@@ -4,7 +4,14 @@
     </div>
     <div class="py-5 container">
       <div class="d-flex align-items-center justify-content-center">
-        <h1 class="mb-3">Bienvenue sur Poke-loca</h1>
+        <h1 id='title'></h1>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script>
+          var typed = new Typed('#title', {
+            strings: ['Bienvenue sur Poké-Loca'],
+            typeSpeed: 50,
+          });
+        </script>
       </div>
       <div class="align-items-center row">
         <div class="col-xl-6 col-sm-12">
