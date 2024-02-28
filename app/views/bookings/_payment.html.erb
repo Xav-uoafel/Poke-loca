@@ -1,0 +1,96 @@
+<div class="wrapper" id="app">
+  <div class="card-form">
+    <div class="card-list">
+      <div class="card-item">
+        <div class="card-item__side -front">
+          <div class="card-item__focus"></div>
+          <div class="card-item__cover">
+            <img class="card-item__bg">
+          </div>
+
+          <div class="card-item__wrapper">
+            <div class="card-item__top">
+              <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png" class="card-item__chip">
+              <div class="card-item__type">
+                <img class="card-item__typeImg">
+              </div>
+            </div>
+            <label for="cardNumber" class="card-item__number">
+              <div class="card-item__numberItem"></div>
+            </label>
+            <div class="card-item__content">
+              <label for="cardName" class="card-item__info">
+                <div class="card-item__holder">Card Holder</div>
+                <div class="card-item__name">Full Name</div>
+              </label>
+              <div class="card-item__date">
+                <label for="cardMonth" class="card-item__dateTitle">Expires</label>
+                <label for="cardMonth" class="card-item__dateItem">
+                  <span>MM</span>
+                </label>
+                /
+                <label for="cardYear" class="card-item__dateItem">
+                  <span>YY</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-item__side -back">
+          <div class="card-item__cover">
+            <img class="card-item__bg">
+          </div>
+          <div class="card-item__band"></div>
+          <div class="card-item__cvv">
+            <div class="card-item__cvvTitle">CVV</div>
+            <div class="card-item__cvvBand">
+              <span>*</span>
+            </div>
+            <div class="card-item__type">
+              <img class="card-item__typeImg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-form__inner">
+      <div class="card-input">
+        <label for="cardNumber" class="card-input__label">Card Number</label>
+        <input type="text" id="cardNumber" class="card-input__input" autocomplete="off">
+      </div>
+      <div class="card-input">
+        <label for="cardName" class="card-input__label">Card Holders</label>
+        <input type="text" id="cardName" class="card-input__input" autocomplete="off">
+      </div>
+      <div class="card-form__row">
+        <div class="card-form__col">
+          <div class="card-form__group">
+            <label for="cardMonth" class="card-input__label">Expiration Date</label>
+            <select class="card-input__input -select" id="cardMonth">
+              <option value="" disabled selected>Month</option>
+              <% (1..12).each do |month| %>
+                <option value="<%= month %>"><%= month %></option>
+              <% end %>
+            </select>
+            <select class="card-input__input -select" id="cardYear">
+              <option value="" disabled selected>Year</option>
+              <% (Date.today.year..(Date.today.year+6)).each do |year| %>
+                <option value="<%= year %>"><%= year %></option>
+              <% end %>
+            </select>
+          </div>
+        </div>
+        <div class="card-form__col -cvv">
+          <div class="card-input">
+            <label for="cardCvv" class="card-input__label">CVV</label>
+            <input type="text" class="card-input__input" id="cardCvv" maxlength="4" autocomplete="off">
+          </div>
+        </div>
+      </div>
+
+      <button class="card-form__button">
+        Submit
+      </button>
+    </div>
+  </div>
+</div>
