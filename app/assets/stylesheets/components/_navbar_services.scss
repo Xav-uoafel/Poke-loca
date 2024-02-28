@@ -2,8 +2,23 @@
   display: flex;
   justify-content: space-around;
   background: white;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #3d3d3d00;
   border-radius: 16px;
   padding: 10px;
   margin: 10px 0;
+  width: 80vh;
+  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.4);
+  background-color: #3c3c3ce0;
+}
+
+.service > i {
+  font-size: 1.5em;
+  color: #e6e6e6;
+  transition: ease 0.5s;
+}
+
+.service > i:hover {
+ font-size: 2em;
+ transition: ease 0.5s;
+ color: #e6e6e6;
 }
