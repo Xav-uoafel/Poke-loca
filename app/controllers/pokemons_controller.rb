@@ -3,6 +3,9 @@ class PokemonsController < ApplicationController
 
   def index
     @pokemons = Pokemon.all
+    if params[:query].present?
+      @pokemons = Pokemon.where("services ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show

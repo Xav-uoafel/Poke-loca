@@ -3,8 +3,7 @@ User.destroy_all
 Pokemon.destroy_all
 puts 'database cleaned'
 
-services = %w[courses parking promenade nage babysitting massage menage jardinage avocat tueur-a-gages]
-
+services = %w[Courses Parking Promenade Babysitting Massage Menage Jardinage Avocat Tueur-a-gages Massage+ Escort Braquage Ami]
 require 'open-uri'
 require 'json'
 file = File.read('db/pokemons.json')
