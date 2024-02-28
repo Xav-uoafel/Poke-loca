@@ -1,0 +1,43 @@
+<div class="contenttest">
+  <main id="main" style="overflow: auto; height: 100vh;">
+    <div class="py-5 container-fluid">
+      <%= image_tag 'pokeball/Remove Background.gif', style: 'width: 100px; height: 100px; position: absolute; top: 30px; left: 30px;' %>
+      <div style="display: flex; justify-content: flex-end; align-items: center;">
+        <div>
+          <% if user_signed_in? %>
+            <%= link_to 'Déconnexion', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-primary mx-2' %>
+          <% else %>
+            <%= link_to 'Inscription', new_user_registration_path, class: 'btn btn-primary mx-2' %>
+            <%= link_to 'Connexion', new_user_session_path, class: 'btn btn-primary mx-2' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="py-5 container">
+      <div class="d-flex align-items-center justify-content-center">
+        <h1 id='title'></h1>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script>
+          var typed = new Typed('#title', {
+            strings: ['Bienvenue sur Poké-Loca'],
+            typeSpeed: 50,
+          });
+        </script>
+      </div>
+      <div class="align-items-center row">
+        <div class="col-xl-6 col-sm-12">
+          <%= image_tag 'pokemonHome/jigglypuff' %>
+        </div>
+        <div class="py-5 order-last order-lg-first col-xl-6 col-sm-12">
+          <h1>Rondoudou</h1>
+          <p class="mb-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores, inventore itaque fugit pariatur earum ut sequi corrupti adipisci exercitationem labore nihil rerum hic incidunt quasi quod odit odio nulla dolorem!
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque enim eius itaque quis molestiae amet ab facere culpa! Autem laboriosam quod amet esse explicabo velit sed vel voluptas laborum illum!
+          </p>
+          <a href="#ancre" class="button-primary w-100">
+            Explorer
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
