@@ -1,17 +1,9 @@
 <h1>Pokemons !!!!!!!!!!!!!!!</h1>
 <h2>Attttrraaaaapppezzzzzzzz llesssss touuuuusssss!!!!!!!!!!!!!!!
 </h2>
-<%= link_to 'New Pokemon', new_pokemon_path %>
-<div class="container">
-<% @pokemons.each do |pokemon|%>
-<div class="card" style="width: 18rem;">
-  <img src="<%= pokemon.picture.url %>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= pokemon.name %></h5>
-    <p class="card-text">Hire this pokemon to : <%= pokemon.services %></p>
-    <%= pokemon.price %>€/day
-    <%= link_to 'Show', pokemon %>
-  </div>
-</div>
+ <% if user_signed_in? %>
+  <%= link_to 'Ajouter un service', new_pokemon_path %>
 <% end %>
+<div class="container">
+    <%= render 'pokemon_cards' %>
 </div>
