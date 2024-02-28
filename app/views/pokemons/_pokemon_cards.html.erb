@@ -1,0 +1,16 @@
+<div class="cardspokemon">
+
+<% @pokemons.each do |pokemon| %>
+
+<div class="cardpokemon">
+  <img src="<%=pokemon.picture.url%>" class="imgpokemon" alt="...">
+  <div class="cardbody">
+    <h5 class="cardtitle"><%= pokemon.name %></h5>
+    <p class="cardtext"><%= pokemon.services %></p>
+    <p class="cardtext"><%= pokemon.price %>€/day</p>
+    <p class="cardtext"><%= pokemon.type_pokemon%></p>
+
+    <p><%= link_to "Remove", pokemon_path(pokemon), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+  </div>
+</div>
+<%end%>

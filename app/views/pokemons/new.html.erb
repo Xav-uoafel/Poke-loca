@@ -10,23 +10,8 @@
   <%= f.submit 'Create your offer' %>
 <% end %>
 
+<%= render 'pokemon_cards' %>
 
-<div class="cards-pokemon">
+<p><%= link_to "Back", pokemons_path %></p>
 
-<% @pokemons.each do |pokemon| %>
-
-<div class="card" style="width: 18rem;">
-  <img src="<%=pokemon.picture.url%>" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title"><%= pokemon.name %></h5>
-    <p class="card-text"><%= pokemon.services %></p>
-    <p class="card-text"><%= pokemon.price %></p>
-    <p class="card-text"><%= pokemon.type_pokemon%></p>
-
-    <p><%= link_to "Remove", pokemon_path(pokemon), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
-  </div>
-</div>
-<%end%>
-
-</div>
 </div>

@@ -1,4 +1,3 @@
-
 <div data-controller="explorer">
   <main id="main"  style="overflow: auto;"data-explorer-target="main">
     <div id="Home" class="bg-charizard pb-5 mb-5 position-relative overflow-hidden container-fluid">
@@ -28,7 +27,9 @@
             </h2>
 
             </button>
-            <%= link_to 'New Pokemon', new_pokemon_path %>
+          <% if user_signed_in? %>
+                <%= link_to 'Ajouter un service', new_pokemon_path %>
+          <% end %>
             <div class="container ">
               <div class ="d-flex gap align-items-center">
                 <button data-action="click->explorer#rollback" type="button" class="button-primary w-100" style="transform: none;">Retour
@@ -50,4 +51,3 @@
             </div>
           </div>
         </button>
-</div>

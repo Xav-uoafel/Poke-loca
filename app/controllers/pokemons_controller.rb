@@ -1,8 +1,12 @@
 class PokemonsController < ApplicationController
   before_action :find_pokemon, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @pokemons = Pokemon.all
+    if params[:query].present?
+      @pokemons = Pokemon.where("services ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
