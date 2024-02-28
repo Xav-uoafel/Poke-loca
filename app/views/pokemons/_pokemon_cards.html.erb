@@ -1,7 +1,7 @@
 <div class="cardspokemon">
   <% @pokemons.each do |pokemon| %>
     <div class="cardpokemon">
-      <div class="card rounded-4 <%=pokemon.type_pokemon.downcase %>" style="width: 18rem;">
+      <div class="card rounded-4 <%=pokemon.type_pokemon.downcase.gsub('é','e') %>" style="width: 18rem;">
         <%= cl_image_tag pokemon.picture.key, class: 'card-img-top p-2 rounded-4'%>
           <div class="card-body">
             <h5 class="card-title"><%= pokemon.name %></h5>

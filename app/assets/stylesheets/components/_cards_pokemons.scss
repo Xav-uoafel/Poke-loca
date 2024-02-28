@@ -15,20 +15,24 @@
   animation: pulse 1.5s infinite;
 }
 
-.plante {
-  background-color: #4CAF50;
+.fee {
+  background-image: linear-gradient(to bottom, #ef71ef, #fb5bd2, #ff43b3, #ff2893, #ff0472);
 }
+
+.combat {
+  background-image: linear-gradient(to bottom, #c26200, #d05900, #df4c00, #ef3800, #ff0b00);}
+
+.plante {
+  background-image: linear-gradient(to bottom, #3da324, #40a843, #47ac5c, #52b071, #60b384);}
 
 .poison {
-  background-color: #9C27B0
+  background-image: linear-gradient(to bottom, #923fcc, #7836b2, #602c98, #49237f, #341966);
 }
-
 .eau {
-  background-color: #2196F3;
-}
+  background-image: linear-gradient(to left bottom, #2481ef, #00a6f0, #53c4e4, #a3dcdf, #e6f0ed);}
 
 .feu {
-  background-color: #F44336;
+   background-image: linear-gradient(to bottom, #e72322, #f25e03, #f58a00, #f3b200, #ebd812);
 }
 
 @keyframes pulse {
