@@ -1,22 +1,33 @@
 // Specific CSS for your home-page
 // Dans votre fichier SCSS
-
-body {
-  background-image: url("chemin/vers/votre/image.jpg"); // Ajouter une image d'arrière-plan //
-  font-family: "Arial", sans-serif; // Changer la police de caractères
+html {
+  scroll-behavior: smooth;
+  transition: 3000ms;
 }
 
-#main {
-  padding: 20px; // Ajouter un padding autour du contenu principal
+body {
+  color: rgb(40, 38, 38);
+}
 
-  #Home {
-    background-image: url("chemin/vers/votre/image.jpg"); // Ajouter une image d'arrière-plan
-    background-size: cover; // Faire en sorte que l'image couvre toute la zone
-  }
+#spacer {
+  height: 100vh;
+}
 
-  #otherContent {
-    background-color: #fff; // Changer la couleur d'arrière-plan du contenu supplémentaire
-    border-radius: 10px; // Ajouter des coins arrondis
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // Ajouter une ombre
-  }
+.contenttest {
+  background-image: asset-url("bg-forest.svg");
+  background-size: cover;
+  opacity: 0.8;
+  background-attachment: fixed;
+}
+
+#otherContent {
+  background-color: transparent;
+}
+
+.centered {
+  text-align: center;
+}
+
+.padded {
+  padding-top: 20px;
 }

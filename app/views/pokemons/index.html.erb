@@ -1,6 +1,9 @@
-<div data-controller="explorer">
-  <main id="main"  style="overflow: auto;"data-explorer-target="main">
-    <div id="Home" class="bg-charizard pb-5 mb-5 position-relative overflow-hidden container-fluid">
+<div>
+  <%= render 'accueil' %>
+  <div id="otherContent">
+    <div class="container pt-5">
+        <h1 class="centered">Pokemons !!!!!!!!!!!!!!!</h1>
+        <h2 class="centered padded">Attrapez-les tous !!!!!!!!!!!!!!!</h2>
     </div>
     <div class="py-5 container">
       <div class="d-flex align-items-center justify-content-center">
@@ -33,28 +36,27 @@
             <h2>Attttrraaaaapppezzzzzzzz llesssss touuuuusssss!!!!!!!!!!!!!!!
             </h2>
 
-            </button>
-          <% if user_signed_in? %>
-                <%= link_to 'Ajouter un service', new_pokemon_path %>
-          <% end %>
-            <div class="container ">
-              <div class ="d-flex gap align-items-center">
-                <button data-action="click->explorer#rollback" type="button" class="button-primary w-100" style="transform: none;">Retour
-                </button>
-              </div>
 
+      <% if user_signed_in? %>
+        <%= link_to 'Ajouter un service', new_pokemon_path %>
+      <% end %>
 
-            <% @pokemons.each do |pokemon|%>
-            <div class="card" style="width: 18rem;">
-              <img src="<%= pokemon.picture.url %>" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><%= pokemon.name %></h5>
-                <p class="card-text">Hire this pokemon to : <%= pokemon.services %></p>
-                <%= pokemon.price %>€/day
-                <%= link_to 'Show', pokemon %>
-              </div>
-            </div>
-            <% end %>
-            </div>
+      <div class="container ">
+          <a href="#main" class="button-primary w-100 m-5" style="transform: none;">Retour
+          </a>
+        <span id ="ancre"></span>
+
+        <% @pokemons.each do |pokemon|%>
+        <div class="card" style="width: 18rem;">
+          <img src="<%= pokemon.picture.url %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%= pokemon.name %></h5>
+            <p class="card-text">Hire this pokemon to : <%= pokemon.services %></p>
+            <%= pokemon.price %>€/day
+            <%= link_to 'Show', pokemon %>
           </div>
-        </button>
+        </div>
+        <% end %>
+      </div>
+    <div id="spacer"></div>
+</div>
