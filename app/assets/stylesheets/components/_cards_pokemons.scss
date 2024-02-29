@@ -6,10 +6,9 @@
 }
 
 .containernour {
-  display: flex;
+  text-align: -webkit-center;
   justify-content: center;
-  margin-right: 10%;
-  margin-top: 50px;
+  padding-top: 50px;
 }
 .card {
   animation: mymove 5s infinite;
