@@ -9,7 +9,7 @@
               <%= render 'layouts/navbar/navbar_services' %>
             </div>
             <div class="col-10 p-0">
-              <%= render 'pokemon_cards' %>
+              <%= render 'pokemon_card_indexview' %>
               <% if user_signed_in? %>
                 <%= link_to 'Ajouter un service', new_pokemon_path %>
               <% end %>
