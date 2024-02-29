@@ -1,31 +1,22 @@
-<div>
-  <%= render 'accueil' %>
+<%= render 'accueil' %>
   <div id="otherContent">
-    <div class="py-5 container">
-      <div class="d-flex align-items-center justify-content-center">
-            <div id="otherContent" style="display;" data-explorer-target="content">
-              <%= render 'pokemon_card_indexview' %>
-      <% if user_signed_in? %>
-        <%= link_to 'Ajouter un service', new_pokemon_path %>
-      <% end %>
-      <div class="container ">
-          <a href="#main" class="button-primary w-100 m-5" style="transform: none;">Retour
-          </a>
-        <span id ="ancre"></span>
-            <% @pokemons.each do |pokemon|%>
-            <div class="card" style="width: 18rem;">
-              <img src="<%= pokemon.picture.url %>" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h5 class="card-title"><%= pokemon.name %></h5>
-                <p class="card-text">Hire this pokemon to : <%= pokemon.services %></p>
-                <%= pokemon.price %>€/day
-                <%= pokemon.type_pokemon %> </p>
-                <%= link_to 'Show', pokemon %>
-              </div>
+    <div class="containernour">
+      <div class="py-5 ">
+        <div class="d-flex ">
+          <div class="row">
+            <div class="col-2 p-0">
+              <span id="ancres"></span>
+              <%= render 'layouts/navbar/navbar_services' %>
             </div>
-            <% end %>
+            <div class="col-10 p-0">
+              <%= render 'pokemon_card_indexview' %>
+              <% if user_signed_in? %>
+                <%= link_to 'Ajouter un service', new_pokemon_path %>
+              <% end %>
             </div>
           </div>
+        </div>
       </div>
+    </div>
     <div id="spacer"></div>
-</div>
+  </div>
