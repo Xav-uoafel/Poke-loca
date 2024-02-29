@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.destroy
-    redirect_to root_path, notice: 'La réservation a été supprimée avec succès.'
+    redirect_to booking_path, notice: 'La réservation a été supprimée avec succès.'
   end
 
   private

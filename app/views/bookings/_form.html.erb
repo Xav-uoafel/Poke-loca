@@ -1,10 +1,10 @@
+<div>
+  <%= simple_form_for @booking do |f| %>
+    <%= f.input :start_date, as: :string, label: 'Date de début de réservation', error: 'Vous devez être connecté pour réserver', input_html: { data: { controller: 'flatpickr' }} %>
+    <%= f.input :end_date, as: :string, label: 'Date de fin de réservation', input_html: { data: { controller: 'flatpickr' }} %>
+    <%= f.input :pokemon_id, collection: Pokemon.all, label_method: :name, value_method: :id, label: 'Identifiant du Pokémon' %>
+    <%= f.button :submit, 'Soumettre' %>
 
-<%= simple_form_for @booking do |f| %>
-  <%= f.input :start_date, label: 'Start date of reveservation', error: 'You need to be sign in to book' %>
-  <%= f.input :end_date, label: 'End date of reservation', hint: 'No special characters.' %>
-  <%= f.input :pokemon_id, collection: Pokemon.all, label_method: :name, value_method: :id %>
-  <%= f.button :submit %>
-
-  <%= link_to 'Back', bookings_path%>
-
-<% end %>
+    <%= link_to 'Retour', pokemons_path%>
+  <% end %>
+</div>
