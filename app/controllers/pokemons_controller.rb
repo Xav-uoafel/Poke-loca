@@ -43,7 +43,7 @@ class PokemonsController < ApplicationController
   end
 
   def destroy
-    @pokemon.destroy
+    @pokemon.update!(user_id: nil)
   end
 
   private
