@@ -5,6 +5,11 @@
   margin-bottom: 50px;
 }
 
+.containernour {
+  text-align: -webkit-center;
+  justify-content: center;
+  padding-top: 50px;
+}
 .card {
   animation: mymove 5s infinite;
   box-shadow: 5px 5px 0.1 rgba(0, 0, 0, 0.279);
@@ -74,24 +79,28 @@
   background-image: linear-gradient(to right top, #92501b, #995e2f, #a06c42, #a77955, #ad8769, #ad8769, #ad8769, #ad8769, #a77955, #a06c42, #995e2f, #92501b);
 }
 @keyframes pulse {
-	0% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-	}
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
 
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-	}
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
 
-	100% {
-		transform: scale(0.95);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-	}
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
 @keyframes mymove {
-  50% {box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.414);}
+  50% {
+    box-shadow: 2px 5px 7px rgba(0, 0, 0, 0.414);
+  }
 
-  75% {box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.46);}
+  75% {
+    box-shadow: 5px 7px 10px rgba(0, 0, 0, 0.46);
+  }
 }

@@ -7,8 +7,8 @@
   padding: 10px;
   margin: 10px 0;
   width: 80vh;
-  box-shadow: 5px 5px 15px 5px rgba(0,0,0,0.4);
-  background-color: #3c3c3ce0;
+  box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
+  background-color: #3c3c3c;
 }
 
 .service > i {
@@ -18,7 +18,12 @@
 }
 
 .service > i:hover {
- font-size: 2em;
- transition: ease 0.5s;
- color: #e6e6e6;
+  font-size: 2em;
+  transition: ease 0.5s;
+  color: #e6e6e6;
+}
+
+.service {
+  padding: 10px;
+  align-items: center;
 }

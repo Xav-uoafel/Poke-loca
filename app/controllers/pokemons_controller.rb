@@ -4,9 +4,15 @@ class PokemonsController < ApplicationController
 
   def index
     @pokemons = Pokemon.all
-    if params[:query].present?
-      @pokemons = Pokemon.where("services ILIKE ?", "%#{params[:query]}%")
-    end
+    @pokemons = Pokemon.where("services ILIKE ?", "%#{params[:query]}%") if params[:query].present?
+    @markers = [
+      {
+        lat: 43.599550943705445,
+        lng: 1.4570582000627619,
+        info_window_html: render_to_string(partial: "info_window"),
+        marker_html: render_to_string(partial: "marker")
+      }
+    ]
   end
 
   def show
