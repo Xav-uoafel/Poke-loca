@@ -1,14 +1,17 @@
 <%= render 'accueil' %>
-<%= render 'layouts/about' %>
-    <div class="containernour">
-      <div class="w-100 "style="position:sticky; top:20px; z-index: 999">
-              <%= render 'layouts/navbar/navbar_services' %>
-            </div>
-      <div class="py-5 ">
-          <%= render 'pokemon_card_indexview' %>
-          <span id="ancres"></span>
-          <% if user_signed_in? %>
-            <%= link_to 'Ajouter un service', new_pokemon_path %>
-          <% end %>
-        </div>
-      </div>
+<span id="center">
+  <%= render 'layouts/about' %>
+</span>
+<div class="containernour">
+  <div class="w-100 "style="position:sticky; top:20px; z-index: 999">
+    <%= render 'layouts/navbar/navbar_services' %>
+  </div>
+  <span id="ancres"></span>
+  <div class="py-5 ">
+    <%= render 'pokemon_card_indexview' %>
+
+    <% if user_signed_in? %>
+      <%= link_to 'Ajouter un service', new_pokemon_path %>
+    <% end %>
+  </div>
+</div>
