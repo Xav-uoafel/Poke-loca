@@ -7,17 +7,15 @@ html {
 
 body {
   color: rgb(40, 38, 38);
+
+  background-image: asset-url("bg-forest.svg");
+  background-size: cover;
+  opacity: 1;
+  background-attachment: fixed;
 }
 
 #spacer {
   height: 100vh;
-}
-
-.contenttest {
-  background-image: asset-url("bg-forest.svg");
-  background-size: cover;
-  opacity: 0.8;
-  background-attachment: fixed;
 }
 
 .centered {
@@ -33,5 +31,5 @@ body {
 }
 
 .containernour {
-  background-color: bisque;
+  opacity: 0.9;
 }
