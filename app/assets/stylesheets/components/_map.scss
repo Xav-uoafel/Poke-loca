@@ -1,0 +1,21 @@
+.propos{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 50px;
+  color: white;
+  background-image: linear-gradient(to right top, #191a1a, #272928, #353837, #464945, #585954);
+}
+
+.propos-infos{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  padding: 20px;
+}
+
+.img-map {
+  border-radius: 50%;
+}
