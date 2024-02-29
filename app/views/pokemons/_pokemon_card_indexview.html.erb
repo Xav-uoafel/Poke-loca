@@ -1,0 +1,17 @@
+<div class="cardspokemon">
+  <% @pokemons.each do |pokemon| %>
+  <a href="/pokemons/<%=pokemon.id%>">
+    <div class="cardpokemon">
+      <div class="card rounded-4 <%=pokemon.type_pokemon.downcase.gsub('é','e') %>" style="width: 18rem;">
+        <%= cl_image_tag pokemon.picture.key, class: 'card-img-top p-2 rounded-4'%>
+          <div class="card-body">
+            <h5 class="card-title"><%= pokemon.name %></h5>
+            <p class="card-text"><%= pokemon.services %></p>
+            <p class="card-text"><%= pokemon.price %>€/day</p>
+            <p class="card-text"><%= pokemon.type_pokemon%></p>
+          </div>
+      </div>
+    </div>
+  </a>
+  <%end%>
+</div>
