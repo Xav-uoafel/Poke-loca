@@ -4,8 +4,15 @@ class PokemonsController < ApplicationController
 
   def index
     @pokemons = Pokemon.all
+
     @pokemons = Pokemon.where("services ILIKE ?", "%#{params[:query]}%") if params[:query].present?
     @markers = [
+
+    if params[:query].present?
+      @pokemons = Pokemon.where("services ILIKE ?", "%#{params[:query]}%")
+    end
+    @markers = @produits.geocoded.map do |produit|
+
       {
         lat: 43.599550943705445,
         lng: 1.4570582000627619,
@@ -13,6 +20,7 @@ class PokemonsController < ApplicationController
         marker_html: render_to_string(partial: "marker")
       }
     ]
+
   end
 
   def show
@@ -49,7 +57,7 @@ class PokemonsController < ApplicationController
   end
 
   def destroy
-    @pokemon.destroy
+    @pokemon.update!(user_id: nil)
   end
 
   private
