@@ -1,22 +1,15 @@
 <%= render 'accueil' %>
-  <div id="otherContent">
+
     <div class="containernour">
-      <div class="py-5 ">
-        <div class="d-flex ">
-          <div class="row">
-            <div class="col-2 p-0">
-              <span id="ancres"></span>
+      <div class="w-100 "style="position:sticky; top:20px; z-index: 999">
               <%= render 'layouts/navbar/navbar_services' %>
             </div>
-            <div class="col-10 p-0">
-              <%= render 'pokemon_card_indexview' %>
-              <% if user_signed_in? %>
-                <%= link_to 'Ajouter un service', new_pokemon_path %>
-              <% end %>
-            </div>
-          </div>
+      <div class="py-5 ">
+          <%= render 'pokemon_card_indexview' %>
+          <span id="ancres"></span>
+          <% if user_signed_in? %>
+            <%= link_to 'Ajouter un service', new_pokemon_path %>
+          <% end %>
         </div>
       </div>
-    </div>
     <div id="spacer"></div>
-  </div>
