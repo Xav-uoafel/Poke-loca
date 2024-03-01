@@ -1,3 +1,5 @@
+<div class="container">
+  <div class="hero">
 <div class="container-show" data-controller="card-show">
 <div class="ex1" data-card-show-target="card">
   <div class="card-show  ex1-layer <%=@pokemon.type_pokemon.downcase.gsub('é','e') %>" >
@@ -13,6 +15,10 @@
       </div>
   </div>
 </div>
+</div>
+<%= render 'bookings/form' %>
+</div>
+</div>
 <div class="bookings-grid">
       <% @bookings.each do |booking| %>
   <div class="booking">
@@ -22,5 +28,4 @@
                   <%# <%= render 'delete', booking: pokemon_booking %>
       </div>
       <% end %>
-</div>
 </div>
