@@ -78,6 +78,13 @@
 .sol {
   background-image: linear-gradient(to right top, #92501b, #995e2f, #a06c42, #a77955, #ad8769, #ad8769, #ad8769, #ad8769, #a77955, #a06c42, #995e2f, #92501b);
 }
+
+.btn-remove-pokemon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0.95);

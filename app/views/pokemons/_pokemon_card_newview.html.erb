@@ -3,13 +3,16 @@
     <div class="cardpokemon">
       <div class="card rounded-4 <%=pokemon.type_pokemon.downcase.gsub('é','e') %>" style="width: 18rem;">
         <%= cl_image_tag pokemon.picture.key, class: 'card-img-top p-2 rounded-4'%>
-          <div class="card-body">
-            <h5 class="card-title"><%= pokemon.name %></h5>
-            <p class="card-text"><%= pokemon.services %></p>
-            <p class="card-text"><%= pokemon.price %>€/day</p>
-            <p class="card-text"><%= pokemon.type_pokemon%></p>
-            <p class="btn btn-danger text-decoration-none rounded-4"><%= link_to "Remove", pokemon_path(pokemon), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-decoration-none text-white" %></p>
+        <h5 class="card-title text-center fw-bolder fs-3"><%= pokemon.name %></h5>
+        <div class="d-flex justify-content-around">
+          <p class="card-text"><%= pokemon.services %></p>
+          <p class="card-text"><%= pokemon.price %>€/day</p>
+        </div>
+        <%= link_to pokemon_path(pokemon), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <div class="service">
+            <i class="fa-solid fa-xmark btn-remove-pokemon position-absolute" style="color: black;"></i>
           </div>
+        <% end %>
       </div>
     </div>
   <%end%>
