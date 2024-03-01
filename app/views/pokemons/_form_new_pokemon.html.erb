@@ -1,0 +1,12 @@
+
+<div class="container">
+  <div class="form-frame rounded-4 p-3 bg-black bg-opacity-25">
+<%= simple_form_for @pokemon do |f| %>
+    <h5 class="text-center text-bold"><%=f.label :title, "Ajouter un pokemon" %></h5>
+    <%=f.input :name, collection: Pokemon.where(user_id: nil), value_method: :name, label: "Nom du Pokémon", include_blank: false%>
+    <%=f.input :services, collection: %w[Courses Parking Promenade Babysitting Massage Menage Jardinage Avocat Tueur-a-gages Massage+ Escort Braquage Ami] %>
+    <%= f.input :price, label: 'Price/day (€)'%>
+    <%= f.submit 'Create your offer' %>
+  <% end %>
+  </div>
+</div>
