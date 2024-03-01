@@ -1,32 +1,26 @@
-<div class="container-show">
-
-<div class="card-show <%=@pokemon.type_pokemon.downcase.gsub('é','e') %>">
-    <div class="card-show-img">
-      <h1 class="text-center"><%= @pokemon.name %></h1>
-      <%= cl_image_tag @pokemon.picture.key %>
-    </div>
-    <div class="card-show-infos">
-      <p>Type: <%= @pokemon.type_pokemon%></p>
-      <p> Service :<%= @pokemon.services %></p>
-      <p>Prix:<%= @pokemon.price %>€/day</p>
-      <%= link_to 'Back', root_path, class: "btn btn-primary" %>
-    </div>
+<div class="container-show" data-controller="card-show">
+<div class="ex1" data-card-show-target="card">
+  <div class="card-show  ex1-layer <%=@pokemon.type_pokemon.downcase.gsub('é','e') %>" >
+      <div class="card-show-img ">
+        <h1 class="text-center"><%= @pokemon.name %></h1>
+        <%= cl_image_tag @pokemon.picture.key %>
+      </div>
+      <div class="card-show-infos">
+        <p>Type: <%= @pokemon.type_pokemon%></p>
+        <p> Service :<%= @pokemon.services %></p>
+        <p>Prix:<%= @pokemon.price %>€/day</p>
+        <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+      </div>
+  </div>
 </div>
-
 <div class="bookings-grid">
-  <div class="booking">
       <% @bookings.each do |booking| %>
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem;">
-
+  <div class="booking">
               <h5 ><%= booking.pokemon.name %></h5>
                   <p >Durée : <%= (booking.end_date - booking.start_date).to_i %> jours</p>
                   <p >Prix total : <%= booking.pokemon.price * (booking.end_date - booking.start_date).to_i %>€</p>
                   <%# <%= render 'delete', booking: pokemon_booking %>
-
-      <% end %>
       </div>
+      <% end %>
 </div>
-
-
 </div>
