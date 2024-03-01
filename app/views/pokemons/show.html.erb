@@ -13,6 +13,7 @@
       </div>
   </div>
 </div>
+<%= render 'bookings/form' %>
 <div class="bookings-grid">
       <% @bookings.each do |booking| %>
   <div class="booking">
@@ -24,3 +25,7 @@
       <% end %>
 </div>
 </div>
+
+<script>
+  reload()
+</script>
