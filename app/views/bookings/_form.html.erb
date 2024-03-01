@@ -1,11 +1,12 @@
-<div>
-  <%= simple_form_for @booking do |f| %>
+<div class="formbook" data-controller="payment">
+  <%= simple_form_for @booking, html: {  data: { action: "submit->payment#submit", payment_target: "form" } } do |f| %>
     <%= f.input :start_date, as: :string, label: 'Date de début de réservation', error: 'Vous devez être connecté pour réserver', input_html: { data: { controller: 'flatpickr' }} %>
     <%= f.input :end_date, as: :string, label: 'Date de fin de réservation', input_html: { data: { controller: 'flatpickr' }} %>
-    <%= f.input :pokemon_id, collection: Pokemon.all, label_method: :name, value_method: :id, label: 'Identifiant du Pokémon' %>
     <%= f.button :submit, 'Soumettre' %>
 
     <%= link_to 'Retour', pokemons_path%>
   <% end %>
+  <div data-payment-target="payments" style="display: none;">
+  <%= render 'payment' %>
+  </div>
 </div>
-<%=render 'payment'%>
