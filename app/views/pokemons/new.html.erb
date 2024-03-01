@@ -1,14 +1,14 @@
-<div class="container">
-  <h1>Vos pokemons</h1>
-
-  <%= simple_form_for @pokemon do |f| %>
-    <%=f.input :name, collection: Pokemon.where(user_id: nil), value_method: :name, label: "Nom du Pokémon", include_blank: false%>
-    <%=f.input :services, collection: %w[Courses Parking Promenade Babysitting Massage Menage Jardinage Avocat Tueur-a-gages Massage+ Escort Braquage Ami] %>
-    <%= f.input :price, label: 'Price/day (€)'%>
-    <%= f.submit 'Create your offer' %>
+  <%= link_to pokemons_path do %>
+    <div class="fs-2 opacity-75 p-5">
+      <i class="fa-solid fa-arrow-left btn-back-index" style="color: black;"></i>
+    </div>
   <% end %>
+<div class="container">
+  <h1 class="text-center pb-5 title-new-pokemon">Vos pokemons</h1>
 
-  <%= render 'pokemon_card_newview' %>
+  <div class="d-flex justify-content-between">
+    <p><%= render 'form_new_pokemon' %></p>
+    <p><%= render 'pokemon_card_newview' %></p>
+  </div>
 
-  <p><%= link_to "Back", pokemons_path %></p>
 </div>
