@@ -1,28 +1,33 @@
 <div class="container">
+
   <div class="hero">
-<div class="container-show" data-controller="card-show">
-<div class="ex1" data-card-show-target="card">
-  <div class="card-show  ex1-layer <%=@pokemon.type_pokemon.downcase.gsub('é','e') %>" >
-      <div class="card-show-img ">
-        <h1 class="text-center"><%= @pokemon.name %></h1>
-        <%= cl_image_tag @pokemon.picture.key %>
+    <div class="container-show" data-controller="card-show">
+      <div class="ex1" data-card-show-target="card">
+        <div class="card-show  ex1-layer <%=@pokemon.type_pokemon.downcase.gsub('é','e') %>" >
+          <div class="card-show-img ">
+          <%= cl_image_tag @pokemon.picture.key %>
+          <h1 class="text-center"><%= @pokemon.name %></h1>
+          </div>
+            <div class="card-show-infos">
+            <p>Type: <%= @pokemon.type_pokemon%></p>
+            <p> Service :<%= @pokemon.services %></p>
+            <p>Prix:<%= @pokemon.price %>€/day</p>
+            <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+            </div>
+        </div>
       </div>
-      <div class="card-show-infos">
-        <p>Type: <%= @pokemon.type_pokemon%></p>
-        <p> Service :<%= @pokemon.services %></p>
-        <p>Prix:<%= @pokemon.price %>€/day</p>
-        <%= link_to 'Back', root_path, class: "btn btn-primary" %>
-      </div>
+    </div>
+      <%= render 'bookings/form' %>
   </div>
 </div>
-<%= render 'bookings/form' %>
+<div class="container">
 <div class="bookings-grid">
-      <% @bookings.each do |booking| %>
-  <div class="booking">
-              <h5 ><%= booking.pokemon.name %></h5>
-                  <p >Durée : <%= (booking.end_date - booking.start_date).to_i %> jours</p>
-                  <p >Prix total : <%= booking.pokemon.price * (booking.end_date - booking.start_date).to_i %>€</p>
-                  <%# <%= render 'delete', booking: pokemon_booking %>
+    <% @bookings.each do |booking| %>
+      <div class="booking">
+        <h5 ><%= booking.pokemon.name %></h5>
+        <p >Durée : <%= (booking.end_date - booking.start_date).to_i %> jours</p>
+        <p >Prix total : <%= booking.pokemon.price * (booking.end_date - booking.start_date).to_i %>€</p>    <%# <%= render 'delete', booking: pokemon_booking %>
       </div>
       <% end %>
+  </div>
 </div>
