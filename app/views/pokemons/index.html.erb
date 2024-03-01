@@ -3,15 +3,16 @@
   <%= render 'layouts/about' %>
 </span>
 <div class="containernour">
-  <div class="w-100 "style="position:sticky; top:20px; z-index: 999">
+  <div class="w-100 d-flex flex-column"style="position:sticky; top:20px; z-index: 999">
     <%= render 'layouts/navbar/navbar_services' %>
+    <% if user_signed_in? %>
+      <%= link_to new_pokemon_path do %>
+        <i class="fa-solid fa-plus opacity-75" style="color: black;"> Nouvelle offre</i>
+      <%end%>
+    <% end %>
   </div>
   <span id="ancres"></span>
   <div class="py-5 ">
     <%= render 'pokemon_card_indexview' %>
-
-    <% if user_signed_in? %>
-      <%= link_to 'Ajouter un service', new_pokemon_path %>
-    <% end %>
   </div>
 </div>
