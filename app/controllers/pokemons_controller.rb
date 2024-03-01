@@ -50,6 +50,7 @@ class PokemonsController < ApplicationController
 
   def destroy
     @pokemon.update!(user_id: nil)
+    redirect_to new_pokemon_path
   end
 
   private
